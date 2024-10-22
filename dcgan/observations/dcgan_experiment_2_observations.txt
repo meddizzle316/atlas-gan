@@ -1,0 +1,54 @@
+Observations from changing the Beta from 0.5 to 0.9 for the first movement
+FID 0.0007128128915363519
+IS 1.7026
+
+Faster Training Time: about 10 minutes
+
+
+Log (last 2 epochs)
+0.8441
+Epoch [8/10] Batch 100/938              Loss D: 0.7136, Loss G: 2.8624, D(x): 0.8115
+Epoch [8/10] Batch 200/938              Loss D: 0.6833, Loss G: 2.3455, D(x): 0.8819
+Epoch [8/10] Batch 300/938              Loss D: 0.7201, Loss G: 2.5445, D(x): 0.8075
+Epoch [8/10] Batch 400/938              Loss D: 0.6936, Loss G: 2.8302, D(x): 0.8637
+Epoch [8/10] Batch 500/938              Loss D: 0.7111, Loss G: 1.9937, D(x): 0.8254
+Epoch [8/10] Batch 600/938              Loss D: 0.6822, Loss G: 2.5268, D(x): 0.8862
+Epoch [8/10] Batch 700/938              Loss D: 0.7084, Loss G: 1.6994, D(x): 0.9080
+Epoch [8/10] Batch 800/938              Loss D: 0.7973, Loss G: 2.2716, D(x): 0.9468
+Epoch [8/10] Batch 900/938              Loss D: 0.6953, Loss G: 1.4967, D(x): 0.8421
+Epoch [9/10] Batch 0/938              Loss D: 0.7186, Loss G: 2.4750, D(x): 0.8027
+Epoch [9/10] Batch 100/938              Loss D: 0.7746, Loss G: 2.1627, D(x): 0.7212
+Epoch [9/10] Batch 200/938              Loss D: 0.7104, Loss G: 2.0832, D(x): 0.8824
+Epoch [9/10] Batch 300/938              Loss D: 0.7149, Loss G: 2.1503, D(x): 0.8409
+Epoch [9/10] Batch 400/938              Loss D: 0.6990, Loss G: 1.9146, D(x): 0.8255
+Epoch [9/10] Batch 500/938              Loss D: 0.7480, Loss G: 1.8589, D(x): 0.7511
+Epoch [9/10] Batch 600/938              Loss D: 0.8089, Loss G: 1.3179, D(x): 0.9522
+Epoch [9/10] Batch 700/938              Loss D: 0.7052, Loss G: 2.0437, D(x): 0.8234
+Epoch [9/10] Batch 800/938              Loss D: 0.7870, Loss G: 1.8228, D(x): 0.9434
+Epoch [9/10] Batch 900/938              Loss D: 0.7158, Loss G: 2.0542, D(x): 0.9076
+
+
+Experiment 2, b: batch size from 64 to 32
+
+ Loss D: 0.7088, Loss G: 1.8281, D(x): 0.8024
+ FID Score: 0.0006938047254569923
+ IS: 1.6273
+
+ Increased training time to 16 minutes and appears to have decreased the resulting image
+ quality
+
+Experiment 2, c: increasing epoch from 10 to 50
+measurements
+inception score 1.5158749
+fid score 0.01880485
+
+
+Training time: 1hr
+Loss D: 0.6555,
+Loss G: 2.1866,
+D(x): 0.8779
+
+I was expecting some sort of increase in the quality of the images or some other metric
+However, the images appear the same (as the base case) and the loss of the generator does not
+appear improved and while the loss d did improve, it was only marginal, with almost no change
+in IS and FID scores

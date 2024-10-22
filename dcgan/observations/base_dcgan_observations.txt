@@ -1,0 +1,125 @@
+The main thing that seemed to result from the base dcgan training was
+that while the images were passable, some numbers were clearly half formed
+(though obviously the initial dataset is also kinda wobbly but this appeared different)
+Additionally, (unless I was calculating them wrong which is entirely possible)
+I was getting both a low Inception score (of about 1.5) and a 'low' FID score
+(of about 0.003). These metrics themselves aren't very clear but put together, it
+seems that I'm getting both a good number (the FID) with a pretty bad one (IS) which suggests
+the FID score is also wrong (0 is the best you can get), in addition to my
+eye balling of the image quality
+
+
+Base_dcgan measurements
+inception score 1.4854915
+fid score 0.00391572
+
+Loss D: 0.7021
+Loss G: 1.7124
+D(x): 0.8240
+
+Training Time: 12min 10s
+
+
+Log
+
+starting training...
+Epoch [0/10] Batch 0/938              Loss D: 1.3384, Loss G: 0.8055, D(x): 0.6982
+Epoch [0/10] Batch 100/938              Loss D: 0.7951, Loss G: 4.6479, D(x): 0.9146
+Epoch [0/10] Batch 200/938              Loss D: 0.7501, Loss G: 2.0221, D(x): 0.8210
+Epoch [0/10] Batch 300/938              Loss D: 0.7562, Loss G: 2.0697, D(x): 0.7506
+Epoch [0/10] Batch 400/938              Loss D: 0.7576, Loss G: 1.7986, D(x): 0.7543
+Epoch [0/10] Batch 500/938              Loss D: 0.7657, Loss G: 1.9648, D(x): 0.7800
+Epoch [0/10] Batch 600/938              Loss D: 0.9598, Loss G: 2.7237, D(x): 0.9057
+Epoch [0/10] Batch 700/938              Loss D: 1.0206, Loss G: 2.0246, D(x): 0.7973
+Epoch [0/10] Batch 800/938              Loss D: 0.9315, Loss G: 1.1806, D(x): 0.5901
+Epoch [0/10] Batch 900/938              Loss D: 1.1782, Loss G: 0.7427, D(x): 0.4421
+Epoch [1/10] Batch 0/938              Loss D: 1.1390, Loss G: 2.7669, D(x): 0.9278
+Epoch [1/10] Batch 100/938              Loss D: 1.3897, Loss G: 3.1962, D(x): 0.9696
+Epoch [1/10] Batch 200/938              Loss D: 0.8871, Loss G: 1.8499, D(x): 0.8533
+Epoch [1/10] Batch 300/938              Loss D: 0.7929, Loss G: 1.7556, D(x): 0.7200
+Epoch [1/10] Batch 400/938              Loss D: 0.8861, Loss G: 1.6044, D(x): 0.6345
+Epoch [1/10] Batch 500/938              Loss D: 0.8012, Loss G: 1.4908, D(x): 0.7843
+Epoch [1/10] Batch 600/938              Loss D: 0.9357, Loss G: 1.0878, D(x): 0.5920
+Epoch [1/10] Batch 700/938              Loss D: 0.8595, Loss G: 1.1590, D(x): 0.6491
+Epoch [1/10] Batch 800/938              Loss D: 0.9170, Loss G: 0.9061, D(x): 0.6228
+Epoch [1/10] Batch 900/938              Loss D: 0.9467, Loss G: 1.2067, D(x): 0.6246
+Epoch [2/10] Batch 0/938              Loss D: 0.8563, Loss G: 1.7281, D(x): 0.8252
+Epoch [2/10] Batch 100/938              Loss D: 0.8225, Loss G: 1.3454, D(x): 0.6780
+Epoch [2/10] Batch 200/938              Loss D: 0.9666, Loss G: 1.6963, D(x): 0.7732
+Epoch [2/10] Batch 300/938              Loss D: 0.7703, Loss G: 1.4140, D(x): 0.7626
+Epoch [2/10] Batch 400/938              Loss D: 0.8488, Loss G: 1.9960, D(x): 0.8850
+Epoch [2/10] Batch 500/938              Loss D: 0.7108, Loss G: 1.9341, D(x): 0.8146
+Epoch [2/10] Batch 600/938              Loss D: 0.8354, Loss G: 1.3830, D(x): 0.6845
+Epoch [2/10] Batch 700/938              Loss D: 0.8364, Loss G: 1.9566, D(x): 0.8533
+Epoch [2/10] Batch 800/938              Loss D: 0.8588, Loss G: 1.9463, D(x): 0.7719
+Epoch [2/10] Batch 900/938              Loss D: 1.0402, Loss G: 1.4277, D(x): 0.5201
+Epoch [3/10] Batch 0/938              Loss D: 0.7721, Loss G: 1.8121, D(x): 0.8011
+Epoch [3/10] Batch 100/938              Loss D: 0.9117, Loss G: 1.3477, D(x): 0.7076
+Epoch [3/10] Batch 200/938              Loss D: 0.7731, Loss G: 1.3927, D(x): 0.7355
+Epoch [3/10] Batch 300/938              Loss D: 0.9731, Loss G: 1.6768, D(x): 0.7640
+Epoch [3/10] Batch 400/938              Loss D: 0.8192, Loss G: 1.9811, D(x): 0.8700
+Epoch [3/10] Batch 500/938              Loss D: 0.7729, Loss G: 2.2081, D(x): 0.8103
+Epoch [3/10] Batch 600/938              Loss D: 0.8410, Loss G: 2.2135, D(x): 0.8413
+Epoch [3/10] Batch 700/938              Loss D: 0.7607, Loss G: 1.7453, D(x): 0.7427
+Epoch [3/10] Batch 800/938              Loss D: 0.7512, Loss G: 1.9700, D(x): 0.8076
+Epoch [3/10] Batch 900/938              Loss D: 0.7355, Loss G: 1.3567, D(x): 0.7848
+Epoch [4/10] Batch 0/938              Loss D: 0.8290, Loss G: 1.6692, D(x): 0.7297
+Epoch [4/10] Batch 100/938              Loss D: 0.8303, Loss G: 1.7472, D(x): 0.7597
+Epoch [4/10] Batch 200/938              Loss D: 0.8797, Loss G: 2.6019, D(x): 0.8569
+Epoch [4/10] Batch 300/938              Loss D: 0.8107, Loss G: 2.3306, D(x): 0.8355
+Epoch [4/10] Batch 400/938              Loss D: 0.7133, Loss G: 2.1156, D(x): 0.8194
+Epoch [4/10] Batch 500/938              Loss D: 0.8151, Loss G: 2.0549, D(x): 0.8569
+Epoch [4/10] Batch 600/938              Loss D: 0.7702, Loss G: 2.5879, D(x): 0.9114
+Epoch [4/10] Batch 700/938              Loss D: 0.7797, Loss G: 1.5050, D(x): 0.7862
+Epoch [4/10] Batch 800/938              Loss D: 0.7102, Loss G: 2.6240, D(x): 0.8938
+Epoch [4/10] Batch 900/938              Loss D: 0.9653, Loss G: 4.3316, D(x): 0.9404
+Epoch [5/10] Batch 0/938              Loss D: 0.7242, Loss G: 1.6791, D(x): 0.7837
+Epoch [5/10] Batch 100/938              Loss D: 0.7904, Loss G: 1.8301, D(x): 0.7585
+Epoch [5/10] Batch 200/938              Loss D: 0.8699, Loss G: 2.2712, D(x): 0.9361
+Epoch [5/10] Batch 300/938              Loss D: 0.7872, Loss G: 2.1029, D(x): 0.8865
+Epoch [5/10] Batch 400/938              Loss D: 0.7045, Loss G: 1.9825, D(x): 0.8231
+Epoch [5/10] Batch 500/938              Loss D: 0.7404, Loss G: 2.0425, D(x): 0.8399
+Epoch [5/10] Batch 600/938              Loss D: 0.7172, Loss G: 1.7665, D(x): 0.8083
+Epoch [5/10] Batch 700/938              Loss D: 0.7471, Loss G: 1.4461, D(x): 0.7654
+Epoch [5/10] Batch 800/938              Loss D: 0.8698, Loss G: 1.2852, D(x): 0.6410
+Epoch [5/10] Batch 900/938              Loss D: 0.7437, Loss G: 1.2851, D(x): 0.7537
+Epoch [6/10] Batch 0/938              Loss D: 0.7240, Loss G: 2.0650, D(x): 0.8648
+Epoch [6/10] Batch 100/938              Loss D: 0.6962, Loss G: 2.0252, D(x): 0.8332
+Epoch [6/10] Batch 200/938              Loss D: 0.7956, Loss G: 1.3562, D(x): 0.7103
+Epoch [6/10] Batch 300/938              Loss D: 0.7372, Loss G: 2.5809, D(x): 0.8559
+Epoch [6/10] Batch 400/938              Loss D: 0.7478, Loss G: 2.3457, D(x): 0.8996
+Epoch [6/10] Batch 500/938              Loss D: 0.7381, Loss G: 1.9575, D(x): 0.8125
+Epoch [6/10] Batch 600/938              Loss D: 0.6960, Loss G: 2.2020, D(x): 0.8929
+Epoch [6/10] Batch 700/938              Loss D: 0.7982, Loss G: 1.5949, D(x): 0.6966
+Epoch [6/10] Batch 800/938              Loss D: 0.7421, Loss G: 2.6317, D(x): 0.8971
+Epoch [6/10] Batch 900/938              Loss D: 0.9044, Loss G: 2.7176, D(x): 0.9423
+Epoch [7/10] Batch 0/938              Loss D: 1.9413, Loss G: 4.2487, D(x): 0.2043
+Epoch [7/10] Batch 100/938              Loss D: 0.7572, Loss G: 1.9108, D(x): 0.8665
+Epoch [7/10] Batch 200/938              Loss D: 0.9033, Loss G: 3.3041, D(x): 0.9405
+Epoch [7/10] Batch 300/938              Loss D: 0.6892, Loss G: 2.1642, D(x): 0.8494
+Epoch [7/10] Batch 400/938              Loss D: 0.7826, Loss G: 2.7117, D(x): 0.8962
+Epoch [7/10] Batch 500/938              Loss D: 0.6770, Loss G: 2.4653, D(x): 0.8804
+Epoch [7/10] Batch 600/938              Loss D: 1.4585, Loss G: 2.7362, D(x): 0.3529
+Epoch [7/10] Batch 700/938              Loss D: 0.7053, Loss G: 2.0071, D(x): 0.8098
+Epoch [7/10] Batch 800/938              Loss D: 0.6843, Loss G: 1.9564, D(x): 0.8530
+Epoch [7/10] Batch 900/938              Loss D: 0.7580, Loss G: 2.1508, D(x): 0.9190
+Epoch [8/10] Batch 0/938              Loss D: 0.7287, Loss G: 1.9164, D(x): 0.7740
+Epoch [8/10] Batch 100/938              Loss D: 0.7287, Loss G: 2.5308, D(x): 0.9085
+Epoch [8/10] Batch 200/938              Loss D: 0.7320, Loss G: 2.4360, D(x): 0.9013
+Epoch [8/10] Batch 300/938              Loss D: 0.7366, Loss G: 3.0995, D(x): 0.8632
+Epoch [8/10] Batch 400/938              Loss D: 0.7383, Loss G: 2.2832, D(x): 0.8645
+Epoch [8/10] Batch 500/938              Loss D: 0.6919, Loss G: 2.4357, D(x): 0.8739
+Epoch [8/10] Batch 600/938              Loss D: 0.7874, Loss G: 3.0294, D(x): 0.9127
+Epoch [8/10] Batch 700/938              Loss D: 0.9393, Loss G: 4.0072, D(x): 0.9768
+Epoch [8/10] Batch 800/938              Loss D: 0.6836, Loss G: 2.1067, D(x): 0.8581
+Epoch [8/10] Batch 900/938              Loss D: 5.8787, Loss G: 0.5212, D(x): 0.9981
+Epoch [9/10] Batch 0/938              Loss D: 1.1090, Loss G: 2.0251, D(x): 0.8633
+Epoch [9/10] Batch 100/938              Loss D: 0.7028, Loss G: 2.2378, D(x): 0.8475
+Epoch [9/10] Batch 200/938              Loss D: 0.6972, Loss G: 1.9173, D(x): 0.8307
+Epoch [9/10] Batch 300/938              Loss D: 0.6747, Loss G: 2.6601, D(x): 0.9101
+Epoch [9/10] Batch 400/938              Loss D: 0.6940, Loss G: 2.4452, D(x): 0.9022
+Epoch [9/10] Batch 500/938              Loss D: 0.6900, Loss G: 2.7263, D(x): 0.9072
+Epoch [9/10] Batch 600/938              Loss D: 0.6819, Loss G: 1.8714, D(x): 0.8480
+Epoch [9/10] Batch 700/938              Loss D: 0.6696, Loss G: 2.2826, D(x): 0.8902
+Epoch [9/10] Batch 800/938              Loss D: 0.6796, Loss G: 1.8306, D(x): 0.8486
+Epoch [9/10] Batch 900/938              Loss D: 0.7021, Loss G: 1.7124, D(x): 0.8240

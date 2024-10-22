@@ -1,0 +1,33 @@
+My overall observations
+
+
+1. My IS and FID scores weren't really predictive of high image quality.
+While that's disappointing that means one of three things 1) my algorithm for calculating them
+is wrong fundamentally 2) my method of generating input for them is also wrong
+or 3) that a batch size of 32 simply isn't big enough to get an accurate reading
+(some sources said something around 1000) -- personally, I hope 3 is the correct solution
+
+2. Not only were my IS and FID scores not predictive but neither were
+my loss, not of discriminator or generator models (In fact I don't think I
+had a single predictive quantitative metric). The loss generally oscillated
+a lot but not really changing (having the same values at the end that I did at the
+onset). This is my first project with GANs so it's possible that this is just
+an expected behavior.
+
+3. Mode Collapse: I've read about 'mode collapse' though I'm not sure when or where I
+achieved it. My best guess is experiment 3, which produced both a static image and
+in which the loss of the discriminator and generator were extremely static
+
+4. While I tried many different hyperparameters and a different architecture, none of them
+improved the performance (I think, my quantitative metrics weren't that helpful so
+I kinda just had to eyeball it with the time allotted). This is also saying that the
+performance didn't improve since the base dcgan model. Much of the ML literature
+seems to be a focus on experimentation, which I love. However, the training time
+to try out different hyperparameters and architectures was significant (when training on my
+local lightweight GPU)
+
+5. PyTorch: this was my first big experiment with PyTorch. It was intuitive to use
+and didn't seem to lose any functionality from the keras or tf library. The main
+advantage Tensorflow had was it's summary function, however that was easily remedied with
+a quick installation of torchsummary (to get accurate views of the shapes of the inputs
+and outputs when creating the new architecture for Experiment 1)

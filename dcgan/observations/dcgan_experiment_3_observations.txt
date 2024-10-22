@@ -1,0 +1,23 @@
+When switched to float16, I kept receiving cuda errors
+
+Precision change measurements
+inception score 1.0533831
+fid score 0.03501695
+
+
+
+In addition to the loss for both g and d essentially not changing
+the picture was static and no clear numbers were seen. However, there's a pretty
+big chance this is simply because I don't know how to correctly use
+the torch amp library which I had to use because simply changing all the inputs
+to float16 in pytorch gave me a Cuda error. The recommendation for fixing this (apparently
+it's a pretty common problem) was to use the torch.amp library. Given my relative
+inexperience with pytorch (and the time constraints of the project), I think
+this will have to be where I leave this experiment for now
+
+Loss D: 1.1065,
+Loss G: 0.6930,
+D(x): 1.0000
+
+
+Training Time: 20 minutes
