@@ -1,0 +1,138 @@
+Training Time: Training time took roughly 3 hours for 5 epochs. I'm assuming
+the additional for loop (for the discriminator) is largely responsible for this.
+I would if I could run the training loop without including that for loop
+
+
+Loss: The Discriminator Loss ultimately went down but the Generator loss vascillated
+wildly. Given that GANs are known for their instability, this makes sense. However,
+it was quite disheartening to look at something you've been training for 2 hours suddenly
+increase back to it's initial starting point. I suspect the Generator loss is probably
+the biggest indicator of why my model failed and this, in turn, may be because
+the generator optimizer algorithm used a hyperparameter beta of (0.9, 0.999), whereas
+it's generally accepted to have a value of 0.5, 0.99 or even 0.0, 0.999). This is what I'll be
+changing in the hyperparameter modification.
+
+
+Image Results: I suspect the results might be better if I trained longer. The overall quality
+was extremely fuzzy and it may or may not have been a misshappened face. This is
+likely correlated with the generator loss. However, on the bring side, having coloration, and
+something kinda close to a blurry face is a good start
+
+
+Log:
+
+ 4%|▍         | 101/2544 [01:44<46:07,  1.13s/it]Epoch [0/5] Batch 100/2544                 loss D: -38.7364, loss G 123.8240
+  8%|▊         | 201/2544 [03:27<44:11,  1.13s/it]Epoch [0/5] Batch 200/2544                 loss D: -43.7349, loss G 118.2490
+ 12%|█▏        | 301/2544 [05:09<42:17,  1.13s/it]Epoch [0/5] Batch 300/2544                 loss D: -36.5886, loss G 116.3665
+ 16%|█▌        | 400/2544 [06:50<36:36,  1.02s/it]Epoch [0/5] Batch 400/2544                 loss D: -31.2560, loss G 110.9724
+ 20%|█▉        | 500/2544 [08:33<34:51,  1.02s/it]Epoch [0/5] Batch 500/2544                 loss D: -29.9300, loss G 103.2381
+ 24%|██▎       | 601/2544 [10:17<36:34,  1.13s/it]Epoch [0/5] Batch 600/2544                 loss D: -22.3512, loss G 96.2355
+ 28%|██▊       | 701/2544 [12:00<34:42,  1.13s/it]Epoch [0/5] Batch 700/2544                 loss D: -23.1937, loss G 94.9346
+ 31%|███▏      | 801/2544 [13:42<32:46,  1.13s/it]Epoch [0/5] Batch 800/2544                 loss D: -21.9034, loss G 84.1227
+ 35%|███▌      | 901/2544 [15:25<30:53,  1.13s/it]Epoch [0/5] Batch 900/2544                 loss D: -22.2019, loss G 82.9696
+ 39%|███▉      | 1001/2544 [17:07<28:59,  1.13s/it]Epoch [0/5] Batch 1000/2544                 loss D: -23.3831, loss G 91.8413
+ 43%|████▎     | 1100/2544 [18:48<24:33,  1.02s/it]Epoch [0/5] Batch 1100/2544                 loss D: -21.8633, loss G 92.1471
+ 47%|████▋     | 1200/2544 [20:31<22:55,  1.02s/it]Epoch [0/5] Batch 1200/2544                 loss D: -20.4058, loss G 89.9646
+ 51%|█████     | 1301/2544 [22:15<23:20,  1.13s/it]Epoch [0/5] Batch 1300/2544                 loss D: -23.4800, loss G 83.1451
+ 55%|█████▌    | 1401/2544 [23:57<21:25,  1.12s/it]Epoch [0/5] Batch 1400/2544                 loss D: -17.2908, loss G 87.9988
+ 59%|█████▉    | 1501/2544 [25:39<19:36,  1.13s/it]Epoch [0/5] Batch 1500/2544                 loss D: -19.8347, loss G 92.1128
+ 63%|██████▎   | 1601/2544 [27:22<17:36,  1.12s/it]Epoch [0/5] Batch 1600/2544                 loss D: -19.6846, loss G 82.8296
+ 67%|██████▋   | 1700/2544 [29:03<14:23,  1.02s/it]Epoch [0/5] Batch 1700/2544                 loss D: -21.9713, loss G 75.2139
+ 71%|███████   | 1800/2544 [30:45<12:35,  1.02s/it]Epoch [0/5] Batch 1800/2544                 loss D: -20.8716, loss G 85.0147
+ 75%|███████▍  | 1901/2544 [32:29<12:03,  1.13s/it]Epoch [0/5] Batch 1900/2544                 loss D: -17.9195, loss G 82.9360
+ 79%|███████▊  | 2001/2544 [34:11<10:12,  1.13s/it]Epoch [0/5] Batch 2000/2544                 loss D: -18.6533, loss G 97.8148
+ 83%|████████▎ | 2101/2544 [35:54<08:18,  1.13s/it]Epoch [0/5] Batch 2100/2544                 loss D: -23.2889, loss G 94.6605
+ 87%|████████▋ | 2201/2544 [37:36<06:25,  1.12s/it]Epoch [0/5] Batch 2200/2544                 loss D: -26.4420, loss G 91.3482
+ 90%|█████████ | 2301/2544 [39:19<04:33,  1.13s/it]Epoch [0/5] Batch 2300/2544                 loss D: -21.0911, loss G 83.7585
+ 94%|█████████▍| 2401/2544 [41:01<02:40,  1.12s/it]Epoch [0/5] Batch 2400/2544                 loss D: -19.7340, loss G 84.6924
+ 98%|█████████▊| 2500/2544 [42:42<00:44,  1.02s/it]Epoch [0/5] Batch 2500/2544                 loss D: -15.4666, loss G 83.9380
+100%|██████████| 2544/2544 [43:26<00:00,  1.02s/it]
+  4%|▍         | 101/2544 [01:43<45:46,  1.12s/it]Epoch [1/5] Batch 100/2544                 loss D: -18.7354, loss G 90.5450
+  8%|▊         | 200/2544 [03:24<39:52,  1.02s/it]Epoch [1/5] Batch 200/2544                 loss D: -20.0618, loss G 95.2208
+ 12%|█▏        | 300/2544 [05:06<38:09,  1.02s/it]Epoch [1/5] Batch 300/2544                 loss D: -17.6488, loss G 89.5480
+ 16%|█▌        | 401/2544 [06:50<40:12,  1.13s/it]Epoch [1/5] Batch 400/2544                 loss D: -18.1614, loss G 97.9558
+ 20%|█▉        | 501/2544 [08:32<38:17,  1.12s/it]Epoch [1/5] Batch 500/2544                 loss D: -19.1303, loss G 102.3884
+ 24%|██▎       | 601/2544 [10:14<36:16,  1.12s/it]Epoch [1/5] Batch 600/2544                 loss D: -15.8312, loss G 95.5797
+ 28%|██▊       | 701/2544 [11:56<34:27,  1.12s/it]Epoch [1/5] Batch 700/2544                 loss D: -16.7193, loss G 100.0698
+ 31%|███▏      | 801/2544 [13:38<32:53,  1.13s/it]Epoch [1/5] Batch 800/2544                 loss D: -17.5104, loss G 98.6604
+ 35%|███▌      | 901/2544 [15:21<30:42,  1.12s/it]Epoch [1/5] Batch 900/2544                 loss D: -17.7393, loss G 84.9864
+ 39%|███▉      | 1001/2544 [17:03<28:48,  1.12s/it]Epoch [1/5] Batch 1000/2544                 loss D: -14.5876, loss G 89.9517
+ 43%|████▎     | 1101/2544 [18:44<26:53,  1.12s/it]Epoch [1/5] Batch 1100/2544                 loss D: -16.1709, loss G 91.1980
+ 47%|████▋     | 1201/2544 [20:26<25:03,  1.12s/it]Epoch [1/5] Batch 1200/2544                 loss D: -16.2135, loss G 91.3528
+ 51%|█████     | 1301/2544 [22:08<23:09,  1.12s/it]Epoch [1/5] Batch 1300/2544                 loss D: -15.8640, loss G 97.8140
+ 55%|█████▌    | 1400/2544 [23:48<19:21,  1.02s/it]Epoch [1/5] Batch 1400/2544                 loss D: -15.3364, loss G 98.3677
+ 59%|█████▉    | 1501/2544 [25:31<19:27,  1.12s/it]Epoch [1/5] Batch 1500/2544                 loss D: -14.1205, loss G 101.9575
+ 63%|██████▎   | 1601/2544 [27:13<17:33,  1.12s/it]Epoch [1/5] Batch 1600/2544                 loss D: -15.2507, loss G 88.1004
+ 67%|██████▋   | 1701/2544 [28:55<15:45,  1.12s/it]Epoch [1/5] Batch 1700/2544                 loss D: -16.3697, loss G 99.2906
+ 71%|███████   | 1801/2544 [30:37<13:50,  1.12s/it]Epoch [1/5] Batch 1800/2544                 loss D: -15.7828, loss G 85.8370
+ 75%|███████▍  | 1901/2544 [32:18<12:05,  1.13s/it]Epoch [1/5] Batch 1900/2544                 loss D: -15.2373, loss G 98.5777
+ 79%|███████▊  | 2001/2544 [34:00<10:04,  1.11s/it]Epoch [1/5] Batch 2000/2544                 loss D: -13.2175, loss G 81.9669
+ 83%|████████▎ | 2101/2544 [35:42<08:15,  1.12s/it]Epoch [1/5] Batch 2100/2544                 loss D: -17.0499, loss G 89.7814
+ 87%|████████▋ | 2201/2544 [37:24<06:23,  1.12s/it]Epoch [1/5] Batch 2200/2544                 loss D: -16.3559, loss G 99.1351
+ 90%|█████████ | 2301/2544 [39:05<04:31,  1.12s/it]Epoch [1/5] Batch 2300/2544                 loss D: -12.8831, loss G 94.8617
+ 94%|█████████▍| 2400/2544 [40:46<02:25,  1.01s/it]Epoch [1/5] Batch 2400/2544                 loss D: -15.7453, loss G 100.4397
+ 98%|█████████▊| 2501/2544 [42:29<00:48,  1.12s/it]Epoch [1/5] Batch 2500/2544                 loss D: -15.7160, loss G 83.9385
+100%|██████████| 2544/2544 [43:12<00:00,  1.02s/it]
+  4%|▍         | 101/2544 [01:42<45:44,  1.12s/it]Epoch [2/5] Batch 100/2544                 loss D: -9.2847, loss G 98.0018
+  8%|▊         | 201/2544 [03:24<43:31,  1.11s/it]Epoch [2/5] Batch 200/2544                 loss D: -20.6372, loss G 96.2606
+ 12%|█▏        | 301/2544 [05:06<41:37,  1.11s/it]Epoch [2/5] Batch 300/2544                 loss D: -12.8565, loss G 100.2739
+ 16%|█▌        | 401/2544 [06:47<39:55,  1.12s/it]Epoch [2/5] Batch 400/2544                 loss D: -18.9051, loss G 82.8160
+ 20%|█▉        | 500/2544 [08:27<34:32,  1.01s/it]Epoch [2/5] Batch 500/2544                 loss D: -12.8860, loss G 90.1225
+ 24%|██▎       | 601/2544 [10:11<36:06,  1.11s/it]Epoch [2/5] Batch 600/2544                 loss D: -18.9553, loss G 97.0956
+ 28%|██▊       | 701/2544 [11:52<34:15,  1.12s/it]Epoch [2/5] Batch 700/2544                 loss D: -9.8872, loss G 96.6635
+ 31%|███▏      | 801/2544 [13:33<32:25,  1.12s/it]Epoch [2/5] Batch 800/2544                 loss D: -12.2188, loss G 100.0693
+ 35%|███▌      | 901/2544 [15:15<30:35,  1.12s/it]Epoch [2/5] Batch 900/2544                 loss D: -15.3026, loss G 104.3817
+ 39%|███▉      | 1001/2544 [16:56<28:53,  1.12s/it]Epoch [2/5] Batch 1000/2544                 loss D: -12.4867, loss G 83.9766
+ 43%|████▎     | 1101/2544 [18:38<26:54,  1.12s/it]Epoch [2/5] Batch 1100/2544                 loss D: -15.0377, loss G 100.0844
+ 47%|████▋     | 1201/2544 [20:19<24:53,  1.11s/it]Epoch [2/5] Batch 1200/2544                 loss D: -23.4168, loss G 103.9863
+ 51%|█████     | 1301/2544 [22:01<23:08,  1.12s/it]Epoch [2/5] Batch 1300/2544                 loss D: -15.3726, loss G 93.1316
+ 55%|█████▌    | 1401/2544 [23:42<21:17,  1.12s/it]Epoch [2/5] Batch 1400/2544                 loss D: -13.8562, loss G 88.1670
+ 59%|█████▉    | 1501/2544 [25:24<19:33,  1.13s/it]Epoch [2/5] Batch 1500/2544                 loss D: -12.4771, loss G 78.6732
+ 63%|██████▎   | 1601/2544 [27:06<17:30,  1.11s/it]Epoch [2/5] Batch 1600/2544                 loss D: -10.5766, loss G 101.3944
+ 67%|██████▋   | 1701/2544 [28:47<15:44,  1.12s/it]Epoch [2/5] Batch 1700/2544                 loss D: -9.7768, loss G 105.8453
+ 71%|███████   | 1801/2544 [30:29<13:49,  1.12s/it]Epoch [2/5] Batch 1800/2544                 loss D: -10.8015, loss G 94.6404
+ 75%|███████▍  | 1901/2544 [32:11<11:59,  1.12s/it]Epoch [2/5] Batch 1900/2544                 loss D: -11.8672, loss G 96.4236
+ 79%|███████▊  | 2001/2544 [33:52<10:04,  1.11s/it]Epoch [2/5] Batch 2000/2544                 loss D: -10.1051, loss G 105.7138
+ 83%|████████▎ | 2101/2544 [35:33<08:14,  1.12s/it]Epoch [2/5] Batch 2100/2544                 loss D: -12.9418, loss G 103.0711
+ 87%|████████▋ | 2201/2544 [37:15<06:22,  1.12s/it]Epoch [2/5] Batch 2200/2544                 loss D: -14.7213, loss G 109.0110
+ 90%|█████████ | 2300/2544 [38:55<04:06,  1.01s/it]Epoch [2/5] Batch 2300/2544                 loss D: -12.5732, loss G 103.7924
+ 94%|█████████▍| 2401/2544 [40:38<02:39,  1.12s/it]Epoch [2/5] Batch 2400/2544                 loss D: -21.4976, loss G 87.2124
+ 98%|█████████▊| 2501/2544 [42:20<00:48,  1.12s/it]Epoch [2/5] Batch 2500/2544                 loss D: -16.3727, loss G 96.5128
+100%|██████████| 2544/2544 [43:03<00:00,  1.02s/it]
+  4%|▍         | 101/2544 [01:42<45:24,  1.12s/it]Epoch [3/5] Batch 100/2544                 loss D: -11.4236, loss G 85.5984
+  8%|▊         | 201/2544 [03:23<43:29,  1.11s/it]Epoch [3/5] Batch 200/2544                 loss D: -9.8841, loss G 89.3839
+ 12%|█▏        | 301/2544 [05:05<42:07,  1.13s/it]Epoch [3/5] Batch 300/2544                 loss D: -20.9846, loss G 107.4575
+ 16%|█▌        | 401/2544 [06:47<39:45,  1.11s/it]Epoch [3/5] Batch 400/2544                 loss D: -11.7417, loss G 93.9975
+ 20%|█▉        | 501/2544 [08:28<37:52,  1.11s/it]Epoch [3/5] Batch 500/2544                 loss D: -14.3016, loss G 85.6384
+ 24%|██▎       | 601/2544 [10:09<36:03,  1.11s/it]Epoch [3/5] Batch 600/2544                 loss D: -10.0042, loss G 91.0755
+ 28%|██▊       | 701/2544 [11:51<34:14,  1.11s/it]Epoch [3/5] Batch 700/2544                 loss D: -10.8024, loss G 87.3179
+ 31%|███▏      | 800/2544 [13:31<29:25,  1.01s/it]Epoch [3/5] Batch 800/2544                 loss D: -17.2464, loss G 105.3368
+ 35%|███▌      | 901/2544 [15:14<30:35,  1.12s/it]Epoch [3/5] Batch 900/2544                 loss D: -14.4946, loss G 83.2942
+ 39%|███▉      | 1001/2544 [16:56<28:41,  1.12s/it]Epoch [3/5] Batch 1000/2544                 loss D: -10.2960, loss G 89.8009
+ 43%|████▎     | 1101/2544 [18:37<26:43,  1.11s/it]Epoch [3/5] Batch 1100/2544                 loss D: -9.4982, loss G 96.2837
+ 47%|████▋     | 1201/2544 [20:18<25:09,  1.12s/it]Epoch [3/5] Batch 1200/2544                 loss D: -7.8561, loss G 106.1245
+ 51%|█████     | 1301/2544 [22:00<23:06,  1.12s/it]Epoch [3/5] Batch 1300/2544                 loss D: -7.3259, loss G 88.0940
+ 55%|█████▌    | 1401/2544 [23:42<21:15,  1.12s/it]Epoch [3/5] Batch 1400/2544                 loss D: -11.2313, loss G 87.6549
+ 59%|█████▉    | 1501/2544 [25:23<19:21,  1.11s/it]Epoch [3/5] Batch 1500/2544                 loss D: -11.6851, loss G 91.6965
+ 63%|██████▎   | 1601/2544 [27:04<17:34,  1.12s/it]Epoch [3/5] Batch 1600/2544                 loss D: -9.4499, loss G 94.3418
+ 67%|██████▋   | 1701/2544 [28:46<15:40,  1.12s/it]Epoch [3/5] Batch 1700/2544                 loss D: -7.5986, loss G 81.6959
+ 71%|███████   | 1801/2544 [30:27<13:46,  1.11s/it]Epoch [3/5] Batch 1800/2544                 loss D: -11.3904, loss G 84.7950
+ 75%|███████▍  | 1900/2544 [32:07<10:51,  1.01s/it]Epoch [3/5] Batch 1900/2544                 loss D: -12.1669, loss G 89.3375
+ 79%|███████▊  | 2001/2544 [33:50<10:05,  1.11s/it]Epoch [3/5] Batch 2000/2544                 loss D: -7.7449, loss G 98.0765
+ 83%|████████▎ | 2101/2544 [35:31<08:12,  1.11s/it]Epoch [3/5] Batch 2100/2544                 loss D: -9.9510, loss G 90.9601
+ 87%|████████▋ | 2201/2544 [37:13<06:21,  1.11s/it]Epoch [3/5] Batch 2200/2544                 loss D: -13.1127, loss G 95.5266
+ 90%|█████████ | 2301/2544 [38:54<04:33,  1.13s/it]Epoch [3/5] Batch 2300/2544                 loss D: -9.5730, loss G 97.6389
+ 94%|█████████▍| 2401/2544 [40:35<02:39,  1.11s/it]Epoch [3/5] Batch 2400/2544                 loss D: -7.7710, loss G 81.1745
+ 98%|█████████▊| 2501/2544 [42:17<00:48,  1.12s/it]Epoch [3/5] Batch 2500/2544                 loss D: -10.6029, loss G 86.0124
+100%|██████████| 2544/2544 [43:00<00:00,  1.01s/it]
+  4%|▍         | 101/2544 [01:42<45:12,  1.11s/it]Epoch [4/5] Batch 100/2544                 loss D: -15.5504, loss G 83.5277
+  8%|▊         | 201/2544 [03:23<43:36,  1.12s/it]Epoch [4/5] Batch 200/2544                 loss D: -9.8315, loss G 70.4396
+ 12%|█▏        | 300/2544 [05:03<37:46,  1.01s/it]Epoch [4/5] Batch 300/2544                 loss D: -9.8162, loss G 91.5709
+ 16%|█▌        | 401/2544 [06:46<39:42,  1.11s/it]Epoch [4/5] Batch 400/2544                 loss D: -16.1030, loss G 94.7836
+ 20%|█▉        | 501/2544 [08:27<37:57,  1.11s/it]Epoch [4/5] Batch 500/2544                 loss D: -11.3518, loss G 89.3009
+ 24%|██▎       | 601/2544 [10:09<36:06,  1.12s/it]Epoch [4/5] Batch 600/2544                 loss D: -14.0317, loss G 81.7841
+ 28%|██▊       | 701/2544 [11:50<34:10,  1.11s/it]Epoch [4/5] Batch 700/2544                 loss D: -14.0285, loss G 101.2957
+ 31%|███▏      | 801/2544 [13:32<32:28,  1.12s/it]Epoch [4/5] Batch 800/2544                 loss D: -14.7326, loss G 88.5050
+ 35%|███▌      | 901/2544 [15:13<30:33,  1.12s/it]Epoch [4/5] Batch 900/2544                 loss D: -15.4158, loss G 99.3943
+ 39%|███▉      | 1000/2544 [16:53<25:55,  1.01s/it]Epoch [4/5] Batch 1000/2544                 loss D: -13.9565, loss G 81.2091
+ 41%|████      | 1033/2544 [17:27<25:32,  1.01s/it]
