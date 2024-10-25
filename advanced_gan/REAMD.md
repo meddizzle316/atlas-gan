@@ -1,8 +1,8 @@
 ## Advanced GAN Project (WGAN with Gradient Penalty)
 
 
-### TODO LOOM VIDEO
-
+### Loom video
+https://www.loom.com/share/59865ed3a3fa4a0bab3ef5b2caca69d8?sid=bb436d8e-d363-426e-869c-269f987b2b43 
 
 
 Repo Overview
