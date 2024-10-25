@@ -1,3 +1,22 @@
+Observations:
+
+Training Time: Given the lack of time, I had to buy some GPU units from Google Colab,
+which significantly reduced the training time (as I was accessing higher end GPUs, their A100).
+This resulted in a per epoch time decrease of about 66% (the epochs previously took about 45 minutes and this
+loop they only took about  15 minutes)
+
+Architecture changes: I made a few changes, the main one being I added an additional Conv2d and ConvTranspose2d to the
+Discriminator and Generator models respectively. To do this, I also resized the images to 128 x 128 instead of 64 x 64. I
+also changed the beta values to 0.0, 0.9 for the Adam optimizers for the Generator model (it was already like that for the
+Discriminator model)
+
+Loss: The thing that was interesting to me about this loop was how high the generator loss was, in addition
+to it's very obvious instability during the training process. Given that I use the same beta hyperparameters in exp #2,
+my guess is that it has to do with the additional layer to each model or to the resizing of the images to fit that new architecture.
+The discriminator loss, while being fairly unstable, still managed to decrease over the 5 epochs.
+
+
+
   4%|▍         | 100/2544 [00:34<13:31,  3.01it/s]Epoch [0/5] Batch 100/2544                 loss D: -460.2155, loss G 323.5064
   8%|▊         | 200/2544 [01:08<12:53,  3.03it/s]Epoch [0/5] Batch 200/2544                 loss D: -420.2655, loss G 482.4665
  12%|█▏        | 300/2544 [01:42<12:17,  3.04it/s]Epoch [0/5] Batch 300/2544                 loss D: -306.3902, loss G 426.0183

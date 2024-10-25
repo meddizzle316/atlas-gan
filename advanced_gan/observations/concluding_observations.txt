@@ -1,0 +1,13 @@
+1. I think it was clear that I had the best results with the base wgan model and experiment #2
+Because of access to better GPUs (through Google Colab) as well as a change to the training loop,
+significantly reduced training time for Exp #2 and thus was able to train for 15 epochs and, seemed to, produce
+the highest quality images (though even these had some obvious discolorations)
+
+2. Since I changed multiple things in both of the experiments, it's difficult to definitely say which had the most impact.
+However, increasing the number of epochs seemed to have the most direct effect and changing the architecture in experiment #1
+seemed to have the greatest negative effect (though this could have simply been because it needed more training time given
+a larger architecture)
+
+3. I learned anew the severe limiting factor that not having access to a high-end GPU can have, in terms
+of creating new Machine learning models. To do high quality and interesting projects seems to necessitate
+such access (which for now means Google Colab but hopefully I'll be able to get something better in the future)

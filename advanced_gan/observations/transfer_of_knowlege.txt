@@ -1,0 +1,6 @@
+In truth, the WGAN and the DCGAN projects were pretty similar in structure, with the
+main difference being the wasserstein loss and the gradient penalty function. In most other respect, the architectures
+were the same. The previous dcgan project in which I modified the architecture (and the tools I learned to do it, notably torchsummary)
+significantly helped me in the advanced dcgan project to modify the architecture quickly and effectively. Additionally, my
+understanding of the inherent instability of GANs, that while the loss can be a helpful indicator, for GANs sometimes the best
+indicator simply seems to be human perception.
